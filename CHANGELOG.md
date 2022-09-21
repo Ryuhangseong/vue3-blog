@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.2] - 2022-09-21
+### Added
+- Added support for Vue3(in Typescript) and Vite
+- This project could run with a default index
+
 ## [0.0.1] - 2022-09-19
 ### Added
 - This CHANGELOG file to hopefully serve as an evolving example of a
