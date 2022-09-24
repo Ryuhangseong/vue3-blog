@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.3] - 2022-09-23
+### Added
+- Added checking of IE browser
+- Added `<noscrpit>`
+
 ## [0.0.2] - 2022-09-21
 ### Added
 - Added support for Vue3(in Typescript) and Vite
@@ -24,4 +29,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - ryuhangseong.com, I've bought it in 2020-12-24
 - god bless you:)
 
+[0.0.3]: https://github.com/ryuhangseong/vue3-blog
+[0.0.2]: https://github.com/ryuhangseong/vue3-blog
 [0.0.1]: https://github.com/ryuhangseong/vue3-blog
