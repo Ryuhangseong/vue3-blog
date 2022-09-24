@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.4] - 2022-09-24
+### Added
+- Added [Element Plus](https://element-plus.org/zh-CN/)
+
 ## [0.0.3] - 2022-09-23
 ### Added
 - Added checking of IE browser
@@ -13,7 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.0.2] - 2022-09-21
 ### Added
-- Added support for Vue3(in Typescript) and Vite
+- Added support for [Vue3(in Typescript)](https://vuejs.org/) and [Vite](https://vitejs.cn/)
 - This project could run with a default index
 
 ## [0.0.1] - 2022-09-19
