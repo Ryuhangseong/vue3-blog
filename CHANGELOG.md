@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Added [Element Plus](https://element-plus.org/zh-CN/)
 - Added auto import styles for Element Plus
+- Added [axios](https://axios-http.com/)
 
 ## [0.0.3] - 2022-09-23
 ### Added
