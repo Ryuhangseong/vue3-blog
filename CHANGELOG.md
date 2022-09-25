@@ -1,3 +1,13 @@
+<!--
+ * @Author: ryuhangseong liuhangcheng2002@gmail.com
+ * @Date: 2022-09-19 15:28:08
+ * @LastEditors: ryuhangseong liuhangcheng2002@gmail.com
+ * @LastEditTime: 2022-09-25 16:55:24
+ * @FilePath: \vue3-blog\CHANGELOG.md
+ * @Description: 
+ * 
+ * Copyright (c) 2022 by ryuhangseong liuhangcheng2002@gmail.com, All Rights Reserved. 
+-->
 # Changelog
 All notable changes to this project will be documented in this file.
 
@@ -6,20 +16,33 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.5] - 2022-09-25
+### Added
+- prettier
+- useVue
+
+### Changed
+- Because of prettier, I've formated many of documents
+- Start to use more careful writing method
+- Newer interface
+
+### Removed
+- old interface
+
 ## [0.0.4] - 2022-09-24
 ### Added
-- Added [Element Plus](https://element-plus.org/zh-CN/)
-- Added auto import styles for Element Plus
-- Added [axios](https://axios-http.com/)
+- [Element Plus](https://element-plus.org/zh-CN/)
+- Auto import styles for Element Plus
+- [axios](https://axios-http.com/)
 
 ## [0.0.3] - 2022-09-23
 ### Added
-- Added checking of IE browser
-- Added `<noscrpit>`
+- Checking of IE browser
+- `<noscrpit>`
 
 ## [0.0.2] - 2022-09-21
 ### Added
-- Added support for [Vue3(in Typescript)](https://vuejs.org/) and [Vite](https://vitejs.cn/)
+- Support for [Vue3(in Typescript)](https://vuejs.org/) and [Vite](https://vitejs.cn/)
 - This project could run with a default index
 
 ## [0.0.1] - 2022-09-19
@@ -35,6 +58,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - ryuhangseong.com, I've bought it in 2020-12-24
 - god bless you:)
 
-[0.0.3]: https://github.com/ryuhangseong/vue3-blog
-[0.0.2]: https://github.com/ryuhangseong/vue3-blog
-[0.0.1]: https://github.com/ryuhangseong/vue3-blog
+
+[0.0.1 - 0.0.5]: https://github.com/ryuhangseong/vue3-blog
