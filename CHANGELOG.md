@@ -2,7 +2,7 @@
  * @Author: ryuhangseong liuhangcheng2002@gmail.com
  * @Date: 2022-09-19 15:28:08
  * @LastEditors: ryuhangseong liuhangcheng2002@gmail.com
- * @LastEditTime: 2022-09-25 16:55:24
+ * @LastEditTime: 2022-09-25 17:09:09
  * @FilePath: \vue3-blog\CHANGELOG.md
  * @Description: 
  * 
@@ -27,7 +27,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Newer interface
 
 ### Removed
-- old interface
+- Old interface
 
 ## [0.0.4] - 2022-09-24
 ### Added
