@@ -2,7 +2,7 @@
  * @Author: ryuhangseong liuhangcheng2002@gmail.com
  * @Date: 2022-09-19 15:28:08
  * @LastEditors: ryuhangseong liuhangcheng2002@gmail.com
- * @LastEditTime: 2022-09-25 17:09:09
+ * @LastEditTime: 2022-09-26 20:31:17
  * @FilePath: \vue3-blog\CHANGELOG.md
  * @Description: 
  * 
@@ -16,17 +16,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.6] - 2022-09-26
+### Added
+- wait-on
+- concurrently
+- request(not work)
+### Changed
+- Now, the dist would be copied to another repository
+### Removed
+- CNAME
+
 ## [0.0.5] - 2022-09-25
 ### Added
 - prettier
 - useVue
 - CNAME
-
 ### Changed
 - Because of prettier, I've formated many of documents
 - Start to use more careful writing method
 - Newer interface
-
 ### Removed
 - Old interface
 

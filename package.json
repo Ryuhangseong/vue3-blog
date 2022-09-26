@@ -1,7 +1,9 @@
 {
   "name": "vue3-blog",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "scripts": {
+    "now": "wait-on tcp:8000 && vite",
+    "now:serve": "concurrently -k \"npm run dev\" \"npm run now\"",
     "dev": "vite",
     "build": "run-p type-check build-only",
     "preview": "vite preview --port 4173",
@@ -15,10 +17,12 @@
   "dependencies": {
     "@vueuse/core": "^9.2.0",
     "axios": "^0.27.2",
+    "concurrently": "^7.4.0",
     "element-plus": "^2.2.17",
     "pinia": "^2.0.21",
     "vue": "^3.2.38",
-    "vue-router": "^4.1.5"
+    "vue-router": "^4.1.5",
+    "wait-on": "^6.0.1"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.1.4",

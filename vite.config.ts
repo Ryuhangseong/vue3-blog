@@ -2,7 +2,7 @@
  * @Author: ryuhangseong liuhangcheng2002@gmail.com
  * @Date: 2022-09-21 21:22:31
  * @LastEditors: ryuhangseong liuhangcheng2002@gmail.com
- * @LastEditTime: 2022-09-25 16:27:59
+ * @LastEditTime: 2022-09-26 16:54:30
  * @FilePath: \vue3-blog\vite.config.ts
  * @Description: .
  *
@@ -35,5 +35,10 @@ export default defineConfig({
     alias: {
       "@": fileURLToPath(new URL("./src", import.meta.url)),
     },
+  },
+  server: {
+    open: true,
+    port: 8080,
+    strictPort: true,
   },
 });

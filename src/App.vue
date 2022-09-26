@@ -2,57 +2,69 @@
  * @Author: ryuhangseong liuhangcheng2002@gmail.com
  * @Date: 2022-09-25 15:50:13
  * @LastEditors: ryuhangseong liuhangcheng2002@gmail.com
- * @LastEditTime: 2022-09-25 16:44:10
+ * @LastEditTime: 2022-09-26 20:18:34
  * @FilePath: \vue3-blog\src\App.vue
  * @Description: 
  * 
  * Copyright (c) 2022 by ryuhangseong liuhangcheng2002@gmail.com, All Rights Reserved. 
 -->
-<script setup lang="ts">
-import { RouterLink, RouterView } from "vue-router";
+
+<!-- <script lang="ts" setup>
 import { ElButton } from "element-plus";
-import "element-plus/es/components/button/style/css";
+import { ElMessage } from "element-plus";
+// import "element-plus/es/components/button/style/css";
+// import "element-plus/es/components/message/style/css";
+// import { request } from "./utils/request";
+import { UserService } from "./api/api";
+
+const login = () => {
+  ElMessage("this is a message.");
+  UserService.login1({ username: "liuhangcheng" });
+};
+</script> -->
+<script lang="ts" setup>
+import { onMounted } from "vue";
+import { UserService } from "./api/api";
+import { ElMessage } from "element-plus";
+
+onMounted(() => {
+  login1();
+  login2();
+});
+
+const login1 = async () => {
+  const loginParams = {
+    username: "test",
+    password: "test",
+  };
+  const res = await UserService.login1(loginParams);
+  console.log(res);
+};
+
+const login2 = () => {
+  const loginParams = {
+    username: "test",
+    password: "test",
+  };
+  UserService.login2(loginParams).then((res) => {
+    console.log(res);
+  });
+};
+
+const login = () => {
+  ElMessage("this is a message.");
+  const loginParams = {
+    username: "test",
+    password: "test",
+  };
+  UserService.login2(loginParams).then((res) => {
+    console.log(res);
+  });
+};
 </script>
+
 <template>
-  <header>
-    <div class="wrapper">
-      <el-button>Click here!</el-button>
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-      </nav>
-    </div>
-  </header>
-
-  <RouterView />
+  <div>
+    <el-button @click="login()">login</el-button>
+  </div>
 </template>
-<style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
-}
-
-nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
-}
-
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
-
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-  border: 0;
-}
-</style>
