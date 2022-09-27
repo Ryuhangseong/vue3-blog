@@ -48,6 +48,7 @@ const login2 = () => {
   };
   UserService.login2(loginParams).then((res) => {
     console.log(res);
+    console.log("LOGIN1 WRONG!");
   });
 };
 
@@ -59,6 +60,7 @@ const login = () => {
   };
   UserService.login2(loginParams).then((res) => {
     console.log(res);
+    console.log("LOGIN2 WRONG!");
   });
 };
 </script>

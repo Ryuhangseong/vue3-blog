@@ -2,7 +2,7 @@
  * @Author: ryuhangseong liuhangcheng2002@gmail.com
  * @Date: 2022-09-26 16:44:24
  * @LastEditors: ryuhangseong liuhangcheng2002@gmail.com
- * @LastEditTime: 2022-09-26 19:33:03
+ * @LastEditTime: 2022-09-27 17:06:59
  * @FilePath: \vue3-blog\src\utils\request.ts
  * @Description:
  *
@@ -33,6 +33,7 @@ axios.interceptors.request.use(
   },
   (error) => {
     return Promise.reject(error);
+    console.log("HEADER WRONG");
   }
 );
 
@@ -46,6 +47,7 @@ axios.interceptors.response.use(
     if (response) {
       // 请求已发出，但是不在2xx的范围
       showMessage(response.status); // 传入响应码，匹配响应码对应信息
+      console.log(`${response.status}`);
       return Promise.reject(response.data);
     } else {
       ElMessage.warning("网络连接异常,请稍后再试!");
@@ -77,6 +79,7 @@ export function request(url = "", params = {}, type = "POST") {
       })
       .catch((err) => {
         reject(err);
+        console.log("PROMISE WRONG!");
       });
   });
 }

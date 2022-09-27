@@ -1,6 +1,6 @@
 {
   "name": "vue3-blog",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "scripts": {
     "now": "wait-on tcp:8000 && vite",
     "now:serve": "concurrently -k \"npm run dev\" \"npm run now\"",

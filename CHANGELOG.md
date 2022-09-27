@@ -16,6 +16,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.7] - 2022-09-27
+### Added
+- log for each response function in axios
 ## [0.0.6] - 2022-09-26
 ### Added
 - wait-on
