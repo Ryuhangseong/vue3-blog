@@ -2,7 +2,7 @@
  * @Author: ryuhangseong liuhangcheng2002@gmail.com
  * @Date: 2022-09-19 15:28:08
  * @LastEditors: ryuhangseong liuhangcheng2002@gmail.com
- * @LastEditTime: 2022-10-12 20:19:15
+ * @LastEditTime: 2022-10-12 20:26:12
  * @FilePath: \vue3-blog\CHANGELOG.md
  * @Description: 
  * 
@@ -26,6 +26,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - semantic-ui-css
 - v-viewer
 - vuex
+### Changed
+- "npm run wait:con"
+- "browserslist"
+
 ## [0.0.8] - 2022-10-06
 ### Added
 - Updated
