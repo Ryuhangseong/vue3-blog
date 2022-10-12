@@ -2,7 +2,7 @@
  * @Author: ryuhangseong liuhangcheng2002@gmail.com
  * @Date: 2022-09-19 15:28:08
  * @LastEditors: ryuhangseong liuhangcheng2002@gmail.com
- * @LastEditTime: 2022-09-26 20:31:17
+ * @LastEditTime: 2022-10-12 20:19:15
  * @FilePath: \vue3-blog\CHANGELOG.md
  * @Description: 
  * 
@@ -16,6 +16,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.9] - 2022-10-12
+### Added
+- core-js
+- moment
+- nprogress
+- prismjs
+- sanitize-html
+- semantic-ui-css
+- v-viewer
+- vuex
+## [0.0.8] - 2022-10-06
+### Added
+- Updated
 ## [0.0.7] - 2022-09-27
 ### Added
 - log for each response function in axios

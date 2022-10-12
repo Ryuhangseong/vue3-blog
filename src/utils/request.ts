@@ -1,85 +1,136 @@
-/*
- * @Author: ryuhangseong liuhangcheng2002@gmail.com
- * @Date: 2022-09-26 16:44:24
- * @LastEditors: ryuhangseong liuhangcheng2002@gmail.com
- * @LastEditTime: 2022-09-27 17:06:59
- * @FilePath: \vue3-blog\src\utils\request.ts
- * @Description:
- *
- * Copyright (c) 2022 by ryuhangseong liuhangcheng2002@gmail.com, All Rights Reserved.
+import axios, { AxiosRequestConfig } from "axios";
+
+import { BASE_URL, TIMEOUT } from "../config";
+/**
+ * @说明 接口请求返回信息 (按照自己的实际情况分配基础请求格式)
  */
+// export interface requestReturnType<T = any> {
+//   /**
+//    * @说明 返回code状态码
+//    */
+//   code: number;
+//   /**
+//    * @说明 返回错误code状态码
+//    */
+//   errcode?: number;
+//   /**
+//    * @说明 返回信息说明
+//    */
+//   msg: string;
+//   /**
+//    * @说明 返回总体数据
+//    */
+//   data: T;
+//   /**
+//    * @说明 返回请求成功是否
+//    */
+//   success: boolean | null;
+// }
 
-import axios from "axios";
-import { showMessage } from "./status/status"; // 引入状态码文件
-import { ElMessage } from "element-plus"; // 引入el 提示框，这个项目里用什么组件库这里引什么
-// import "element-plus/es/components/message/style/css";
-// 设置接口超时时间
-axios.defaults.timeout = 5000;
+export interface requestReturnType<T = any> {
+  /**
+   * @说明 返回code状态码
+   */
+  code: number;
+  /** 数据内容 */
+  content: T;
+}
 
-// 请求地址，这里是动态赋值的的环境变量，下一篇会细讲，这里跳过
-// @ts-ignore
-axios.defaults.baseURL = import.meta.env.VITE_API_DOMAIN;
+/** 创建axios实例 */
+const instance = axios.create({
+  timeout: TIMEOUT, // 超时时间
+  baseURL: BASE_URL,
+  headers: {
+    "Content-Type": "application/json",
+  },
+});
 
-//http request 拦截器
-axios.interceptors.request.use(
+/** 添加请求拦截 */
+instance.interceptors.request.use(
   (config) => {
-    // 配置请求头
-    config.headers = {
-      //'Content-Type':'application/x-www-form-urlencoded',   // 传参方式表单
-      "Content-Type": "application/json;charset=UTF-8", // 传参方式json
-      token: "80c483d59ca86ad0393cf8a98416e2a1", // 这里自定义配置，这里传的是token
-    };
+    console.log("config", config);
+    // if (config.showLoading) {
+    //   showFullScreenLoading()
+    // }
+
+    /** 请求拦截-可做网络加载开始动作 */
+    // ...
     return config;
   },
-  (error) => {
-    return Promise.reject(error);
-    console.log("HEADER WRONG");
+  (err) => {
+    return Promise.reject(err);
   }
 );
 
-//http response 拦截器
-axios.interceptors.response.use(
+/**  响应拦截 */
+instance.interceptors.response.use(
   (response) => {
+    // if (response.config.showLoading) {
+    //   tryHideFullScreenLoading()
+    // }
+    /** 响应拦截-可做网络加载完成动作 */
+    // ...
     return response;
   },
   (error) => {
-    const { response } = error;
-    if (response) {
-      // 请求已发出，但是不在2xx的范围
-      showMessage(response.status); // 传入响应码，匹配响应码对应信息
-      console.log(`${response.status}`);
-      return Promise.reject(response.data);
+    // tryHideFullScreenLoading()
+    console.log(`error:`, error);
+    if (error && error.response) {
+      switch (error.response.status) {
+        case 400:
+          error.message = "错误请求";
+          break;
+        case 401:
+          error.message = "未授权，请重新登录";
+          break;
+        case 403:
+          error.message = "拒绝访问";
+          break;
+        case 404:
+          error.message = "请求错误,未找到该资源";
+          break;
+        case 405:
+          error.message = "请求方法未允许";
+          break;
+        case 408:
+          error.message = "请求超时";
+          break;
+        case 500:
+          error.message = "服务器端出错";
+          break;
+        case 501:
+          error.message = "网络未实现";
+          break;
+        case 502:
+          error.message = "网络错误";
+          break;
+        case 503:
+          error.message = "服务不可用";
+          break;
+        case 504:
+          error.message = "网络超时";
+          break;
+        case 505:
+          error.message = "http版本不支持该请求";
+          break;
+        default:
+          error.message = `连接错误${error.response.status}`;
+      }
     } else {
-      ElMessage.warning("网络连接异常,请稍后再试!");
+      error.message = "连接到服务器失败";
     }
+    /** 错误逻辑处理，此处可在页面弹框处理 */
+    // ...
+    return Promise.reject(error.message);
   }
 );
-
-// 封装 GET POST 请求并导出
-export function request(url = "", params = {}, type = "POST") {
-  //设置 url params type 的默认值
-  return new Promise((resolve, reject) => {
-    let promise;
-    if (type.toUpperCase() === "GET") {
-      promise = axios({
-        url,
-        params,
-      });
-    } else if (type.toUpperCase() === "POST") {
-      promise = axios({
-        method: "POST",
-        url,
-        data: params,
-      });
-    }
-    //处理返回
-    promise
-      .then((res) => {
-        resolve(res);
-      })
-      .catch((err) => {
-        reject(err);
-        console.log("PROMISE WRONG!");
-      });
-  });
+/** 代理请求 */
+// 注意此处的泛型T，默认值时any；兼容未提供指定类型的方式
+async function httpProxy<T = any>(
+  config: AxiosRequestConfig
+): Promise<requestReturnType<T>> {
+  const resData = await instance(config);
+  return resData.data;
 }
+
+export default httpProxy;
